@@ -13,7 +13,7 @@ public class Menu {
 
 	@SuppressWarnings("resource")
 	static Scanner scan = new Scanner(System.in);
-	
+
 	public static void printMainMenu() {
 		System.out.println("Bienvenido a la tienda, introduce una opción:");
 		System.out.println("1.- Comprar artículos");
@@ -80,6 +80,7 @@ public class Menu {
 		case 2:
 			article = ArticleFactory.getArticle("electronica");
 			article = printAddGeneral(article);
+			article = printAddElectronicsMenu(article);
 			break;
 		case 3:
 			article = ArticleFactory.getArticle("alimentacion");
@@ -91,62 +92,62 @@ public class Menu {
 		Main.articleManager.save(article);
 
 	}
-	
+
 	public static Article printAddGeneral(Article article) {
 		System.out.print("Introduce el nombre del artículo: ");
 		String name = scan.next();
 		article.setName(name);
-		
+
 		System.out.print("\nIntroduce la descripción del artículo: ");
 		String description = scan.next();
 		article.setDescription(description);
-		
+
 		System.out.print("\nIntroduce el precio del artículo: ");
 		double price = scan.nextDouble();
 		article.setPrice(price);
-		
+
 		System.out.print("\nIntroduce el proveedor del artículo: ");
 		String provider = scan.next();
 		article.setProvider(provider);
 		return article;
 	}
-	
+
 	public static Article printAddTextileMenu(Article article) {
-		
+
 		System.out.print("\nIntroduce el color del artículo: ");
 		String colour = scan.next();
-		((Textile)article).setColor(colour);
-		
+		((Textile) article).setColor(colour);
+
 		System.out.print("\nIntroduce el tamaño del artículo: ");
 		String size = scan.next();
-		((Textile)article).setSize(size);
-		
+		((Textile) article).setSize(size);
+
 		return article;
 	}
-	
+
 	public static Article printAddElectronicsMenu(Article article) {
 
-		System.out.print("\nIntroduce la fecha de caducidad del artículo: ");
+		System.out.print("\nIntroduce el poder del artículo: ");
 		String power = scan.next();
 		((Electronics) article).setPower(power);
 
-		System.out.print("\nIntroduce los alérgenos del artículo: ");
+		System.out.print("\nIntroduce la garantía del artículo: ");
 		double guarantee = scan.nextDouble();
-		((Electronics)article).setGuarantee(guarantee);
-		
+		((Electronics) article).setGuarantee(guarantee);
+
 		return article;
 	}
-	
+
 	public static Article printAddFoodMenu(Article article) {
-		
+
 		System.out.print("\nIntroduce la fecha de caducidad del artículo: ");
 		String expirationDate = scan.next();
-		((Food)article).setExpirationDate(expirationDate);
-		
+		((Food) article).setExpirationDate(expirationDate);
+
 		System.out.print("\nIntroduce los alérgenos del artículo: ");
 		String allergens = scan.next();
-		((Food)article).setAllergens(allergens);
-		
+		((Food) article).setAllergens(allergens);
+
 		return article;
 	}
 
