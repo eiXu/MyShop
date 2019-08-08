@@ -16,14 +16,14 @@ public class Main {
 		initWarehouse();
 
 		Menu.printMainMenu();
-		
+
 	}
 
 	public static void initWarehouse() {
 
 		warehouse = new Warehouse(100);
 		articleManager = new ArticleManager(warehouse);
-		
+
 		Article article = null;
 		for (int i = 0; i < 5; i++) {
 			article = ArticleFactory.getArticle("textil");
